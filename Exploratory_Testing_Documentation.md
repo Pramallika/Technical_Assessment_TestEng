@@ -1,15 +1,15 @@
 # Exploratory Testing Report
 
-**Project**: E-commerce Website  
+**Project**: Technical_Assessment_TestEng  
 **Tester**: Pramallika Chunduru  
-**Date**: 26-10-2024  
-**Version Control**: 
+**Date**: 26-10-2024 
+**Version Control**: https://github.com/Pramallika/Technical_Assessment_TestEng.git
 
 ---
 
 ## 1. Test Charter
-**Objective**: To evaluate the functionality and usability of the e-commerce website, focusing on core features such as login, product listings, cart functionality, and checkout processes.  
-**Scope**: The testing concentrated on the login functionality, product page display, menu navigation, cart operations, and checkout process.
+**Objective**:To evaluate the functionality and usability of the e-commerce website, focusing on core features and identifying any unexpected behaviors during interaction.  
+**Scope**: This exploratory test focused on the login process, product listing, shopping cart functionality, and menu navigation.
 
 ---
 
@@ -20,107 +20,68 @@
 
 ---
 
-## 3. Key Features Tested
-### 1. Login Functionality
-- Valid and invalid login attempts using different usernames.
-- Error messages displayed for incorrect credentials.
-
-### 2. Product Page
-- Display of products including images, descriptions, and prices.
-- Functionality of filtering options (A-Z, Z-A, low-high, high-low).
-
-### 3. Menu Navigation
-- Accessibility and functionality of menu options (All items, About, Logout, Reset App status).
-
-### 4. Cart Functionality
-- Adding and removing items from the cart.
-- Quantity modification in the cart.
-
-### 5. Checkout Process
-- Input validation for first name, last name, and postcode during checkout.
-
----
-
-## 4. Observations and Findings
+## 3. Observations
 
 ### Summary of Observations and Findings
+| Feature/Area Tested    | Observations                               | Issues/Bugs |
+|------------------------|--------------------------------------------|-------------|
+| **Login Functionality**| The login process worked smoothly for valid credentials. Error messages displayed correctly for invalid logins. However, performance_glitch_user experienced slower loading times. Additionally, after an incorrect password entry, the show password icon disappears until the password field is cleared. | - |
+| **Product Page**       | Product listings were generally clear, showing images, descriptions, and prices. However, there were inconsistencies in product descriptions and titles for one product when logged in as standard_user. For problem_user, product images did not display, and filtering options were unresponsive. | Inconsistencies in product info (Issue #1),(Issue #2), Filter issues (Issue #3) |
+| **Shopping Cart**      | The "Add to Cart" button functioned correctly for standard_user but encountered issues for problem_user, where the button is not clickable and does not add the item. Quantity adjustments were not possible on the cart page, and incorrect formats (e.g., numbers for names) were accepted during checkout. | Add to Cart issue (Issue #4), Checkout validation issue (Issue #5) |
+| **Menu Navigation**    | All menu options performed well, but the "About" link was broken. The "Reset App Status" function cleared the cart but did not restore the "Add to Cart" button for selected items. Performance_glitch_user experienced slow load times across all pages. | Broken About link (Issue #6), Reset function issue (Issue #7) |
 
-| Feature/Area Tested    | Observations                                                                          | Issues/Bugs                         |
-|------------------------|---------------------------------------------------------------------------------------|-------------------------------------|
-| Login Functionality    | Displays correct messages for login errors.                                           | - None found                        |
-| Product Page           | Inconsistencies in product details for standard_user.                                 | - Issue #1, #2                      |
-|                        | No pictures appear for products in some user types.                                   | - Issue #3                          |
-|                        | Filters do not function properly for problem_user.                                    | - Issue #4                          |
-| Menu Navigation        | About link is broken.                                                                 | - Issue #5                          |
-|                        | Reset App status removes items, but buttons are inconsistent.                         | - Issue #6                          |
-| Cart Functionality     | Unable to modify item quantity in the cart.                                           | - Issue #7                          |
-|                        | Add to cart issues for problem_user: button disappears instead of showing quantity.   | - Issue #8                          |
-| Checkout Process       | Accepts invalid formats for first name and last name fields.                          | - Issue #9                          |
-
----
-
-## 5. Individual Issues
-
-### Issue #1: Product Description Inconsistency
-- **Description**: One product had an incorrect decscription (See Observation in Summary: Product Page)
-- **Steps to Reproduce**:
-  1. Log in as standard_user.
-  2. Navigate to the product page.
-  3. Identify the product with incorrect decscription.
+### Individual Issues
+#### Issue #1: Inconsistency in Product Description
+- **Description**: For standard_user, one product's description did not match the expected format.
+- **Expected Result**: Consistent product information.
+- **Actual Result**: Discrepancy in the displayed data.
 - **Severity**: Minor
 
-### Issue #2: Missing Product Images for Problem User
-- **Description**: No images were displayed on the product list for the problem_user account. (See Observation in Summary: Product Page)
-- **Severity**: Major
-
-### Issue #3: Non-functional Filters for Problem User
-- **Description**: Filtering options did not work; default listing remained unchanged regardless of filter selection. (See Observation in Summary: Product Page)
-- **Severity**: Major
-
-### Issue #4: Inconsistent Add to Cart Functionality
-- **Description**: For some products, the add to cart button did not function properly, disappearing instead of showing the updated quantity. (See Observation in Summary: Cart Functionality)
-- **Severity**: Critical
-
-### Issue #5: Broken About Link
-- **Description**: Clicking the "About" link led to a 404 error. (See Observation in Summary: Menu Navigation)
-- **Severity**: Major
-
-### Issue #6: Reset App Status Behavior
-- **Description**: After resetting the app status, the add to cart button does not reappear on selected items. (See Observation in Summary: Menu Navigation)
+  #### Issue #2: Inconsistency in Product title
+- **Description**: For standard_user, one product's title did not match the expected format.
+- **Expected Result**: Consistent product information.
+- **Actual Result**: Discrepancy in the displayed data.
 - **Severity**: Minor
 
-### Issue #7: Quantity Modification
-- **Description**: Unable to change item quantity in the cart; default is set to 1. (See Observation in Summary: Cart Functionality)
-- **Severity**: Critical
-
-### Issue #8: Checkout Input Validation
-- **Description**: The checkout process accepted invalid input formats (e.g., numbers for names). (See Observation in Summary: Checkout Process)
+#### Issue #3: Non-Functional Filters for Problem User
+- **Description**: The filtering options did not work as intended; default listings remained unchanged despite user input.
+- **Expected Result**: Filters should apply immediately to the product listings.
+- **Actual Result**: No change in product display.
 - **Severity**: Major
 
----
+#### Issue #4: Add to Cart Button is not clickable for Problem User
+- **Description**: When the "Add to Cart" button was clicked for certain products, it was not clickable, and the item was not added to the cart.
+- **Expected Result**: Item should be added, and quantity should update.
+- **Actual Result**: Button does not work with no confirmation of the action.
+- **Severity**: Major
 
-## 6. Ideas for Future Sessions
-- Investigate how the application handles different user roles with special character inputs.
-- Test the responsiveness of the website on various devices.
-- Evaluate performance under different network conditions.
+#### Issue #5: Checkout Accepting Incorrect Formats
+- **Description**: The checkout process allowed invalid inputs (numbers for first name and last name).
+- **Expected Result**: The form should validate input types.
+- **Actual Result**: Incorrect formats accepted without error.
+- **Severity**: Critical
 
----
+#### Issue #6: Broken About Link
+- **Description**: The "About" page link led to a 404 error.
+- **Severity**: Major
 
-## 7. Suggestions for Improvements
-- Implement better validation for checkout fields to prevent invalid inputs.
-- Ensure filtering options work correctly for all user roles.
-- Improve user interface consistency for adding/removing items from the cart.
-
----
-
-## 8. Testing Session Duration
-- **Duration**: 3 hours
-
----
-
-## 9. Tools Used
-- **Browser Developer Tools**: For inspecting elements and network activity.
-- **Screenshot Tool**: For capturing issues.
-- **Text Editor**: For documenting findings.
+#### Issue #7: Reset Functionality Inconsistency
+- **Description**: Resetting the app cleared items from the cart but did not restore the "Add to Cart" button functionality for products.
+- **Severity**: Minor
 
 ---
+
+## 4. Ideas for Future Sessions
+- Investigate the error handling for invalid input data more thoroughly.
+- Explore the usability of the website on mobile devices to test responsiveness.
+- Perform stress testing by logging in with multiple user accounts simultaneously to evaluate performance under load.
+
+## 5. Suggestions for Improvements
+- Improve the validation checks during the checkout process to prevent incorrect data submissions.
+- Ensure product descriptions and titles are consistent and accurate across all user types.
+- Fix the filtering functionality to ensure that users can sort products as expected.
+
+---
+
+## Conclusion
+This exploratory testing session revealed several critical issues that need to be addressed to enhance the overall user experience. Addressing these findings will improve the functionality and reliability of the website.
