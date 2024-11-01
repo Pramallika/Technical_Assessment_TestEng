@@ -7,7 +7,7 @@
 
 ## 1. Objective
 
-The purpose of this test plan is to validate the core functionalities of the e-commerce website, ensuring that key user flows, input validations, and session management perform as expected. The aim is to create a seamless, reliable shopping experience by focusing on areas critical to the user journey, including login, product interactions, cart management, and checkout processes.
+The purpose of this test plan is to validate the core functionalities of (https://www.saucedemo.com/v1/index.html) website, ensuring that key user flows, input validations, and session management perform as expected. The aim is to create a seamless, reliable shopping experience by focusing on areas critical to the user journey, including login, product interactions, cart management, and checkout processes.
 
 ---
 
@@ -28,8 +28,7 @@ The following areas will be automated to optimize testing resources, enhance eff
 - **Login Flow**: Automating successful login and error scenarios allows for quick regression checks with each build, ensuring that authentication processes are robust.
 - **Product and Cart Management**: Automating product interactions (add/remove items) and cart updates is critical as these actions are frequently performed by users and need to be verified continuously.
 - **Checkout Process**: Automating input validation and the end-to-end checkout flow provides consistent testing of essential user journeys, minimizing human error and ensuring accuracy in data handling.
-- **Navigation and Redirects**: Automating key navigation buttons and links ensures that users can seamlessly navigate the site, which is crucial for maintaining user engagement and satisfaction.
-- **Cross-Browser Compatibility**: Automating primary workflows across major browsers (Chrome, Firefox, Safari, and Edge) is essential to ensure a consistent user experience, especially given the diverse environments in which users operate.
+- **Sorting Products**: Automating the sorting functionality for product listings is essential to ensure that users can easily find and select items based on various criteria. This involves validating that the sorting algorithm works correctly across all categories and that the results are consistent and accurate. Regularly testing this feature can help catch any discrepancies in product ordering that may arise due to changes in the backend or database updates. Additionally, it ensures that any new sorting options introduced are functional and do not interfere with existing capabilities.
 
 This approach balances manual testing's depth and automation's efficiency, ensuring that the most critical paths are thoroughly validated without overburdening resources.
 
@@ -71,9 +70,10 @@ The following are prioritized based on their impact on the primary user experien
 
 ### Automation Tool and Framework Justification
 - **Selenium with Python**: Selenium is a powerful tool for web application testing, providing cross-browser support and robust interaction with web elements. Python is chosen for its readability, extensive library support, and compatibility with Selenium. Together, Selenium and Python will allow us to efficiently automate repetitive and critical flows in the user journey, such as login, product interactions, and checkout. This combination is ideal for automating the e-commerce workflows, ensuring consistency across multiple test runs and quick detection of regressions.
+  
 
 ### Additional Libraries
-- **PyTest**: For structured and modular test case organization, allowing easy test management and reporting.
+- **unittest**: Utilized for structured and modular test case organization, enabling developers to create and manage test suites effectively. This framework provides built-in assertions and facilitates test discovery, allowing for comprehensive reporting on test results and simplifying the debugging process.
 - **Selenium WebDriver**: For direct control over the browser, supporting cross-browser tests.
 
 ### Test Data Management Strategy
@@ -149,13 +149,13 @@ The following are prioritized based on their impact on the primary user experien
 | - Login Flow        | 1 hour         | High     |
 | - Product and Cart  | 1.5 hours      | High     |
 | - Checkout Process  | 1.5 hours      | High     |
-| - Navigation Tests  | 1 hour         | Medium   |
-| - Cross-Browser Tests | 2 hours      | Medium   |
+| - Sort Products Tests  | 1 hour         | Medium   |
+
 ---
 
 ## 6. Defect Tracking and Reporting
 
-Defects will be logged in GitHub Issues, categorized by priority:
+Defects will be logged in Bugs.md file, categorized by priority:
 - **Critical**: Blocks main flows, such as login or checkout errors.
 - **Major**: Impacts usability, like incorrect cart updates.
 - **Minor**: Minor visual or text issues, such as label formatting.
