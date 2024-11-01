@@ -8,7 +8,7 @@
 ---
 
 ## 1. Test Charter
-**Objective**:To evaluate the functionality and usability of the e-commerce website, focusing on core features and identifying any unexpected behaviors during interaction.  
+**Objective**:To evaluate the functionality and usability of (https://www.saucedemo.com/v1/index.html) website, focusing on core features and identifying any unexpected behaviors during interaction.  
 **Scope**: This exploratory test focused on the login process, product listing, shopping cart functionality, and menu navigation.
 
 ---
@@ -37,7 +37,7 @@
 - **Actual Result**: Discrepancy in the displayed data.
 - **Severity**: Minor
 
-  #### Issue #2: Inconsistency in Product title
+#### Issue #2: Inconsistency in Product title
 - **Description**: For standard_user, one product's title did not match the expected format.
 - **Expected Result**: Consistent product information.
 - **Actual Result**: Discrepancy in the displayed data.
